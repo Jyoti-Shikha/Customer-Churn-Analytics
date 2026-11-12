@@ -4,9 +4,19 @@ An end-to-end data analytics and machine learning project using the **IBM Telco 
 
 ## Project Overview
 
-Customer churn is an important challenge for subscription-based businesses. Understanding why customers leave and identifying customers who are likely to churn can help businesses develop effective retention strategies.
+Customer churn is a major challenge for subscription-based businesses. Understanding why customers leave and identifying customers who are likely to churn can help businesses develop effective retention strategies.
 
-This project combines exploratory data analysis, SQL-based business analysis and machine learning to study customer churn, identify influential factors and segment customers according to their predicted churn risk.
+This project combines exploratory data analysis, SQL-based business analysis, machine learning and interactive data visualization to study customer churn, identify influential factors and prioritize customers based on their predicted churn risk.
+
+## Project Objectives
+
+- Analyse customer data to identify patterns and trends associated with churn.
+- Perform data cleaning and exploratory data analysis.
+- Use SQL queries to derive meaningful business insights.
+- Build and evaluate machine learning models for churn prediction.
+- Identify influential factors associated with customer churn.
+- Segment customers according to their predicted churn risk.
+- Develop data-driven customer retention recommendations.
 
 ## Dataset
 
@@ -18,56 +28,53 @@ This project combines exploratory data analysis, SQL-based business analysis and
 
 ## Tech Stack
 
-- **Programming:** Python
-- **Data Manipulation:** Pandas, NumPy
-- **Database:** SQLite, SQL
-- **Data Visualization:** Matplotlib, Seaborn
-- **Machine Learning:** Scikit-learn
-- **Environment:** Google Colab / Jupyter Notebook
+| Category | Tools |
+|---|---|
+| Programming | Python |
+| Data Manipulation | Pandas, NumPy |
+| Database & Queries | SQLite, SQL |
+| Data Visualization | Matplotlib, Seaborn, Power BI |
+| Machine Learning | Scikit-learn |
+| Development Environment | Google Colab / Jupyter Notebook |
 
 ## Project Workflow
 
-### 1. Data Loading & Preprocessing
-- Loaded and inspected the customer churn dataset.
-- Examined data types, summary statistics and missing values.
+### 1. Data Cleaning & Preprocessing
+- Inspected dataset structure, data types and missing values.
+- Handled inconsistent and missing values.
 - Converted `TotalCharges` into numeric format.
-- Created a binary churn target variable (`Churn_Flag`).
+- Prepared the dataset for analysis and machine learning.
 
 ### 2. Exploratory Data Analysis (EDA)
+
 Analysed customer churn across important attributes, including:
 - Contract type
 - Customer tenure
 - Monthly charges
-- Customer and service segments
+- Payment methods
+- Internet and subscribed services
 
-Used data visualizations to understand churn distribution and identify patterns in customer behaviour.
+Used visualizations to understand churn distribution and identify patterns in customer behaviour.
 
 ### 3. SQL-Based Business Analysis
-Used SQLite to perform structured queries and analyse:
+
+Used SQLite and SQL queries to explore customer behaviour and derive business insights, including:
 - Churn across different contract types.
 - Churn patterns by payment method.
 - Churn across combinations of contract type and internet service.
 
-### 4. Customer Prioritization & Business Insights
-Identified customer segments with higher observed churn and summarized findings to support retention planning.
+### 4. Customer Analysis & Business Insights
 
-### 5. Business Recommendations
-Developed recommendations based on the analysis, focusing on:
-- Improving early customer retention.
-- Targeting high-churn contract segments.
-- Evaluating pricing and service quality.
-- Implementing data-driven retention experiments.
+Identified customer segments with higher observed churn and examined the factors associated with customer attrition to support retention planning.
 
-### 6. Predictive Modelling
+### 5. Machine Learning & Churn Prediction
 
-Developed two machine learning classification models:
+Developed and evaluated two classification models:
 
 - Logistic Regression
 - Random Forest Classifier
 
-The dataset was split into training and testing sets, with preprocessing pipelines for numerical and categorical features.
-
-**Model evaluation metrics:**
+**Model Performance**
 
 | Metric | Logistic Regression | Random Forest |
 |---|---:|---:|
@@ -77,74 +84,109 @@ The dataset was split into training and testing sets, with preprocessing pipelin
 | F1-Score | 60.40% | 61.98% |
 | ROC-AUC | 84.21% | 83.92% |
 
-Models were evaluated using classification metrics, confusion matrices and ROC curves.
+Models were evaluated using multiple classification metrics, confusion matrices and ROC curves.
 
-### 7. Feature Interpretation
-- Extracted Logistic Regression coefficients to understand feature associations with churn.
-- Analysed Random Forest feature importance.
-- Identified influential factors such as tenure, contract type, total charges and monthly charges.
+### 6. Feature Importance & Interpretation
 
-### 8. Threshold Optimization & Model Selection
-Compared classification thresholds using a validation split and evaluated model performance to select the final model.
+Analysed model coefficients and feature importance to understand factors associated with customer churn.
 
-### 9. Customer Churn Risk Segmentation
+Important features identified by the Random Forest model included:
+- Customer tenure
+- Month-to-month contracts
+- Total charges
+- Monthly charges
+- Two-year contracts
+
+### 7. Threshold Optimization & Model Selection
+
+Compared classification thresholds using a validation split and evaluated model performance to select the final model and prediction threshold.
+
+### 8. Customer Churn Risk Segmentation
+
 - Generated churn probabilities for customers.
 - Assigned customers to Low, Medium and High churn-risk categories.
-- Prepared customer-level predictions for prioritization and retention analysis.
+- Prepared customer-level predictions to support prioritization and targeted retention efforts.
+
+### 9. Power BI Dashboard
+
+Developed an interactive Power BI dashboard to present customer churn insights and support data-driven decision-making.
+
+The dashboard complements the analytical and predictive workflow by providing a visual interface for exploring customer churn patterns.
 
 ### 10. Model Export & Output Generation
+
 Saved the selected model and supporting metadata, including:
 - Trained model
 - Selected prediction threshold
 - Feature information
 - Model evaluation results
 
-Exported customer churn predictions and final model evaluation results as CSV files.
+Exported customer churn predictions and model evaluation results as CSV files.
 
 ## Key Findings
 
 - Month-to-month contracts are associated with higher observed churn.
 - Customers with shorter tenure exhibit higher churn.
 - Monthly charges and contract type are important variables in understanding churn patterns.
-- Logistic Regression achieved higher accuracy and ROC-AUC, while Random Forest achieved higher recall and F1-score in the reported evaluation.
+- Logistic Regression achieved higher accuracy and ROC-AUC.
+- Random Forest achieved higher recall and F1-score in the reported evaluation.
+
+## Business Recommendations
+
+Based on the analysis, potential retention strategies include:
+
+- Prioritizing high-risk customers for proactive engagement.
+- Encouraging suitable long-term contract options.
+- Improving early-stage customer retention.
+- Evaluating pricing and service quality.
+- Designing targeted retention initiatives based on customer risk.
 
 ## Repository Structure
 
 ```text
 Customer-Churn-Analytics/
 │
+├── README.md
+├── Telco-Customer-Churn.csv
 ├── customer_churn_analytics_refined.ipynb
-└── README.md
+└── Customer_Churn_Analytics_Retention_Dashboard.pbix
 ```
 
-The notebook contains the complete workflow, including analysis, SQL queries, model development, evaluation, risk segmentation and output generation.
-
-## How to Run
+## How to Run the Project
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR-USERNAME/customer-churn-analytics.git
+   git clone https://github.com/Jyoti-Shikha/Customer-Churn-Analytics.git
    ```
 
-2. Install the required libraries:
+2. Navigate to the project directory:
+
+   ```bash
+   cd Customer-Churn-Analytics
+   ```
+
+3. Install the required dependencies:
 
    ```bash
    pip install pandas numpy matplotlib seaborn scikit-learn joblib
    ```
 
-3. Open the notebook in Google Colab or Jupyter Notebook.
+4. Open the Jupyter Notebook in Google Colab or Jupyter Notebook.
 
-4. Upload the IBM Telco Customer Churn CSV dataset when prompted by the notebook.
+5. Ensure the dataset CSV is available in the notebook's working directory.
 
-5. Execute the cells sequentially to reproduce the analysis and generate the outputs.
+6. Execute the notebook cells sequentially to reproduce the analysis and generate the outputs.
+
+**Power BI Dashboard:** The `.pbix` file is included in the repository and can be opened using Power BI Desktop. The published dashboard can also be accessed through the link above.
 
 ## Future Scope
 
-- Further experimentation with classification algorithms.
-- Improvement of model performance through hyperparameter tuning.
-- Refinement of customer risk segmentation and retention strategies.
+- Experiment with additional machine learning algorithms.
+- Improve model performance through further hyperparameter tuning.
+- Refine customer risk segmentation.
+- Explore additional customer retention strategies.
 
 ---
 
-**Project Domain:** Data Analytics | Machine Learning | Customer Retention
+**Project Domain:** Data Analytics | Machine Learning | Business Intelligence | Customer Retention
